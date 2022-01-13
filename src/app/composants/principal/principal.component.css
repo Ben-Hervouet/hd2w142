@@ -1,0 +1,18 @@
+div {
+  display: grid;
+  grid-template: "titre titre"
+                 "personnes messages"
+                 "personnes nouveauMessage";
+}
+app-titre {
+  grid-area: titre;
+}
+app-liste-messages {
+  grid-area: messages;
+}
+app-liste-personnes {
+  grid-area: personnes;
+}
+app-nouveau-message {
+  grid-area: nouveauMessage;
+}

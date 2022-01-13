@@ -1,0 +1,8 @@
+<p *ngIf="tabDePersonne.length === 0">
+  Aucune personne en base de données
+</p>
+<div *ngIf="tabDePersonne.length !== 0">
+  <ul *ngFor="let chaquePersonne of tabDePersonne">
+    <li>{{chaquePersonne.nom}}</li>
+  </ul>
+</div>
