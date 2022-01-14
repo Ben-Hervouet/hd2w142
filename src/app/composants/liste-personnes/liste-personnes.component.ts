@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {Personne} from "../../modeles/Personne";
+import {MessagesService} from "../../services/messages.service";
 
 @Component({
   selector: 'app-liste-personnes',
@@ -10,11 +11,10 @@ export class ListePersonnesComponent implements OnInit {
 
   public tabDePersonne: Personne[];
 
-  constructor() {
-    this.tabDePersonne = [
-      new Personne('Caliendo', 'Julien'),
-      new Personne('Al\'Thor', 'Rand')
-    ];
+  constructor(
+    @Inject(MessagesService) private monService: MessagesService
+  ) {
+    this.tabDePersonne = this.monService.recupLeTabDePersonne();
   }
 
   ngOnInit(): void {
