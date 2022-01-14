@@ -1,1 +1,9 @@
-<p>liste-messages works!</p>
+<div *ngFor="let msg of tabDeMessage">
+  <legend>
+    Le {{msg.date | date:'short'}},
+    {{msg.personne.nom}} à écrit
+  </legend>
+  <div>
+    {{msg.message}}
+  </div>
+</div>

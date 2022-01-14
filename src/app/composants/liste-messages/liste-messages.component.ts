@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
+import {Message} from "../../modeles/Message";
+import {Personne} from "../../modeles/Personne";
+import {MessagesService} from "../../services/messages.service";
 
 @Component({
   selector: 'app-liste-messages',
@@ -7,7 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListeMessagesComponent implements OnInit {
 
-  constructor() { }
+  public tabDeMessage: Message[] = [];
+
+  constructor(
+    @Inject(MessagesService) private monService: MessagesService
+  ) {
+    this.tabDeMessage = this.monService.recupLeTabDeMsg();
+  }
 
   ngOnInit(): void {
   }
